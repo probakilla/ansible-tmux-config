@@ -1,0 +1,22 @@
+---
+
+- name: "Copying the tmux configuration"
+  blockinfile:
+    path: "{{ tmux_config_path }}"
+    insertafter: "^## Tmux configuration ##$"
+    marker: "# ANSIBLE - TMUX CONFIGURATION {mark}"
+    block: "{{ tmux_config_block }}"
+
+- name: "Adding keybindings in template"
+  blockinfile:
+    path: "{{ tmux_config_path }}"
+    insertafter: "^## Tmux key bindings ##$"
+    marker: "# ANSIBLE - TMUX KEYBINDINGS {mark}"
+    block: "{{ tmux_keybinds_block }}"
+
+- name: "Adding design block to template"
+  blockinfile:
+    path: "{{ tmux_config_path }}"
+    insertafter: "^## Tmux design ##$"
+    marker: "# ANSIBLE - DESIGN {mark}"
+    block: "{{ tmux_design_block }}"

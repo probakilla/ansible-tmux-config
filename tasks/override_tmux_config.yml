@@ -1,0 +1,9 @@
+---
+
+- name: "Installing tmux template"
+  template:
+    src: tmux.config.j2
+    dest: "{{ tmux_config_path }}"
+    follow: yes
+
+- include: fill_tmux_config.yml

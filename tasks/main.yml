@@ -1,2 +1,9 @@
 ---
 
+- name: "Overriding current tmux configuration"
+  include: override_tmux_config.yml
+  when: override_tmux_config
+
+- name: "Filling the tmux configuration"
+  include: fill_tmux_config.yml
+  when: not override_tmux_config
